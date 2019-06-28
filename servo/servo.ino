@@ -12,8 +12,7 @@ Servo myservo2;
 int ServoPinA =44;
 int ServoPinB =46;
 
-int servoInterval = 30; //15ms interval
-int servoTimer = servoInterval*90; //90 degrees of rotation
+int servoInterval = 30; //30ms interval
 long previousServoMillis;
 
 boolean servoStateA = false;
@@ -25,7 +24,7 @@ void openGateA(){
     servoStateA = true;
 }
 void updateGateA(){
-    if (servoState == true) {
+    if (servoStateA == true) {
         unsigned long currentMillis = millis();
         //forward movement
         if (reverse != true){
@@ -47,7 +46,7 @@ void updateGateA(){
             }
             if (pos <= 0){
                 reverse = false;
-                servoState = false;
+                servoStateA = false;
             }
         }
     }
